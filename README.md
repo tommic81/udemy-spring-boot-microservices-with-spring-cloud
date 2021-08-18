@@ -61,8 +61,6 @@
 - SRP can also be applied to microservices
   - Do one thing, and do it very well
 
-
-
 ##### Architecture and design
 
 - Gateway
@@ -140,4 +138,89 @@
 - XII. Admin processes
   - Run admin/management tasks as one-off processes
 
-#### Spring MVC Restful Web Services
+#### Restful Web Services
+
+##### Request Methods
+
+- GET - is a request for a resource (html file, javascript file, image, etc) 
+- GET - is used when you visit a website. 
+- HEAD - is like GET, but only asks for meta information without the body. 
+- POST - is used to post data to the server. 
+- PUT - is a request for the enclosed entity be stored at the supplied URI. If the entity exists, it is expected to be updated. 
+- POST is a create request 
+- PUT is a create OR update request
+
+- DELETE - Is a request to delete the specified resource
+- TRACE - Will echo the received request. Can be used to see if request was altered by intermediate servers
+- OPTIONS - Returns the HTTP methods supported by the server for the specified URL
+- CONNECT - Converts the request to a transparent TCP/IP tunnel, typically for HTTPS through an unencrypted HTTP proxy 
+- PATCH - Applies partial modifications to the specified resource
+
+##### Safe Methods
+
+- Safe Methods are considered safe to use because they only fetch information and do not cause changes on the server 
+- The Safe Methods are: GET, HEAD, OPTIONS, and TRACE
+
+##### Idempotent Methods
+
+- Idempotence - A quality of an action such that repetitions of the action have no further effect on the outcome 
+- PUT and DELETE are Idempotent Methods 
+- Safe Methods (GET, HEAD, TRACE, OPTIONS) are also Idempotent 
+- Being truly Idempotent is not enforced by the protocol
+
+##### Non-Idempotent Methods
+
+- POST is NOT Idempotent  
+- Multiple Posts are likely to create multiple resources
+
+#### HTTP Status Codes
+
+- 100 series are informational in nature
+- 200 series indicate successful request 
+- 300 series are redirections 
+- 400 series are client errors 
+- 500 series are server side errors
+
+#### Richardson Maturity Model
+
+- Established by Leonard Richardson in a 2008 Q-Con Presentation 
+- A model used to describe the maturity of RESTful services
+- Unlike SOAP, there is no formal specification for REST 
+- RMM is used to describe the quality of the RESTful service
+
+##### Level 0: Swamp of POX
+
+- POX - Plain Old XML 
+- Uses implementing protocol as a transport protocol 
+- Typically uses one URI and one kind of method 
+- Examples - RPC, SOAP, XML-RPC
+
+##### Level 1: Resources
+
+- Uses Multiple URIs to identify specific resources 
+
+- Examples: 
+  - http://www.example.com/product/1234 
+  - http://www.example.com/product/5687 
+
+- Still uses a single method (ie GET)
+
+##### Level 2: HTTP Verbs
+
+- HTTP Verbs are used with URIs for desired actions 
+- Examples: 
+  - GET /products/1234 - to return data for product 1234 
+  - PUT /products/1234 (with XML body) to update data for product 1234 
+  - DELETE /products/1234 to delete product 1234 
+
+- Most common in practical use
+
+##### Level 3: Hypermedia
+
+- Representation now contains URIs which may be useful to consumers 
+- Helps client developers explore the resource 
+- No clear standard at this time 
+- Spring provides an implementation of HATEOS
+
+#### Spring MVC Rest Services
+

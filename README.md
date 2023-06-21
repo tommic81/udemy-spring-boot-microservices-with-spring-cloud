@@ -224,3 +224,93 @@
 
 #### Spring MVC Rest Services
 
+##### Spring Boot Development Tools
+
+- Added to Project via artifact ‘spring-boot-devtools’
+
+- Developer Tools are automatically disabled when running a packaged application (ie java -jar)
+
+- By default, not included in repackaged archives
+
+- Automatic Restart
+
+  - Triggers a restart of the Spring Context when classes change
+
+  - Uses two classloaders. One for your application, one for project jar dependencies
+
+  - Restarts are very fast, since only your project classes are bring loaded
+
+- Eclipse:
+
+  - Restart is triggered with save (which by default will compile the class, which triggers the restart)
+
+- IntelliJ:
+
+  - By default you need to select ‘Build / Make Project’
+
+  - There is an advanced setting you can change to make this more seamless
+
+- Template Caching
+  - By default templates are cached for performance
+  - But Caching will require a container restart to refresh the cache
+  - Developer Tools will disable template caching so the restart is not required to see changes
+
+- LiveReload
+  - LiveReload is a technology to automatically trigger a browser refresh when resources are changed
+  - Spring Boot Developer Tools includes a LiveReload server
+  - Browser plugins are available for a free download at livereload.com
+
+##### API Versioning
+
+- [Blog post](https://github.com/lyndseypadget/semflow)
+
+- Versioning your APIs is considered a best practice
+
+- Example “/api/v1/beer” - “v1” is the API version
+
+- API Versioning allows you to evolve the API without breaking existing API consumers
+
+- Typical lifespan:
+
+  - v1 - first release
+
+  - v2 - second release, notify consumers v1 version is deprecated
+
+  - v3 - remove v1 (optional), notify consumers v2 is deprecated
+
+###### Semantic Versioning 2.0.0
+
+- See website - https://semver.org
+
+- Version - MAJOR.MINOR.PATCH
+
+  - MAJOR - version for major incompatible API changes - aka breaking changes
+
+  - MINOR - new functionality - backwards compatible changes
+
+  - PATCH - backwards compatible bug fixes
+
+- API URLs typically only use MAJOR versions
+
+  - Can optionally use MINOR and PATCH
+
+  - /v1 or /v1.1
+
+###### Non-Breaking Changes
+
+- Non-Breaking changes may be performed under MINOR or PATCH versions
+- Examples:
+  - New optional parameter
+  - New response fields
+  - New service (endpoint)
+  - Bug fixes - behavior change, NOT change to API itself
+
+###### Breaking Changes
+
+- Breaking Changes should be done under a MAJOR version
+- Examples:
+  - New required parameter
+  - Removal of existing parameter
+  - Removal of response value
+  - Parameter name change or type
+  - Deprecation of a service

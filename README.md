@@ -138,9 +138,9 @@
 - XII. Admin processes
   - Run admin/management tasks as one-off processes
 
-#### Restful Web Services
+## Restful Web Services
 
-##### Request Methods
+### Request Methods
 
 - GET - is a request for a resource (html file, javascript file, image, etc) 
 - GET - is used when you visit a website. 
@@ -156,24 +156,24 @@
 - CONNECT - Converts the request to a transparent TCP/IP tunnel, typically for HTTPS through an unencrypted HTTP proxy 
 - PATCH - Applies partial modifications to the specified resource
 
-##### Safe Methods
+### Safe Methods
 
 - Safe Methods are considered safe to use because they only fetch information and do not cause changes on the server 
 - The Safe Methods are: GET, HEAD, OPTIONS, and TRACE
 
-##### Idempotent Methods
+### Idempotent Methods
 
 - Idempotence - A quality of an action such that repetitions of the action have no further effect on the outcome 
 - PUT and DELETE are Idempotent Methods 
 - Safe Methods (GET, HEAD, TRACE, OPTIONS) are also Idempotent 
 - Being truly Idempotent is not enforced by the protocol
 
-##### Non-Idempotent Methods
+### Non-Idempotent Methods
 
 - POST is NOT Idempotent  
 - Multiple Posts are likely to create multiple resources
 
-#### HTTP Status Codes
+### HTTP Status Codes
 
 - 100 series are informational in nature
 - 200 series indicate successful request 
@@ -181,21 +181,21 @@
 - 400 series are client errors 
 - 500 series are server side errors
 
-#### Richardson Maturity Model
+### Richardson Maturity Model
 
 - Established by Leonard Richardson in a 2008 Q-Con Presentation 
 - A model used to describe the maturity of RESTful services
 - Unlike SOAP, there is no formal specification for REST 
 - RMM is used to describe the quality of the RESTful service
 
-##### Level 0: Swamp of POX
+#### Level 0: Swamp of POX
 
 - POX - Plain Old XML 
 - Uses implementing protocol as a transport protocol 
 - Typically uses one URI and one kind of method 
 - Examples - RPC, SOAP, XML-RPC
 
-##### Level 1: Resources
+#### Level 1: Resources
 
 - Uses Multiple URIs to identify specific resources 
 
@@ -205,7 +205,7 @@
 
 - Still uses a single method (ie GET)
 
-##### Level 2: HTTP Verbs
+#### Level 2: HTTP Verbs
 
 - HTTP Verbs are used with URIs for desired actions 
 - Examples: 
@@ -215,16 +215,16 @@
 
 - Most common in practical use
 
-##### Level 3: Hypermedia
+#### Level 3: Hypermedia
 
 - Representation now contains URIs which may be useful to consumers 
 - Helps client developers explore the resource 
 - No clear standard at this time 
 - Spring provides an implementation of HATEOS
 
-#### Spring MVC Rest Services
+## Spring MVC Rest Services
 
-##### Spring Boot Development Tools
+### Spring Boot Development Tools
 
 - Added to Project via artifact ‘spring-boot-devtools’
 
@@ -260,7 +260,7 @@
   - Spring Boot Developer Tools includes a LiveReload server
   - Browser plugins are available for a free download at livereload.com
 
-##### API Versioning
+### API Versioning
 
 - [Blog post](https://github.com/lyndseypadget/semflow)
 
@@ -278,7 +278,7 @@
 
   - v3 - remove v1 (optional), notify consumers v2 is deprecated
 
-###### Semantic Versioning 2.0.0
+#### Semantic Versioning 2.0.0
 
 - See website - https://semver.org
 
@@ -296,7 +296,7 @@
 
   - /v1 or /v1.1
 
-###### Non-Breaking Changes
+#### Non-Breaking Changes
 
 - Non-Breaking changes may be performed under MINOR or PATCH versions
 - Examples:
@@ -305,7 +305,7 @@
   - New service (endpoint)
   - Bug fixes - behavior change, NOT change to API itself
 
-###### Breaking Changes
+#### Breaking Changes
 
 - Breaking Changes should be done under a MAJOR version
 - Examples:
